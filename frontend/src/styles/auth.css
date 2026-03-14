@@ -1,0 +1,210 @@
+/* Auth pages ─────────────────────────────────────── */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.auth-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.auth-orb {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224,36,36,0.4) 0%, transparent 70%);
+  filter: blur(60px);
+}
+
+.auth-card-wrap {
+  width: 100%;
+  max-width: 420px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.auth-logo-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.auth-brand {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.auth-tagline {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.auth-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.auth-tabs {
+  display: flex;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 14px;
+  background: none;
+  border: none;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s;
+  position: relative;
+  z-index: 1;
+}
+.auth-tab.active { color: var(--accent); }
+
+.auth-tab-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px 2px 0 0;
+}
+
+.auth-form {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pw-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.pw-wrap .form-input { padding-right: 40px; }
+.pw-toggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+}
+.pw-toggle:hover { color: var(--text-primary); }
+
+.auth-forgot {
+  text-align: right;
+  margin-top: -8px;
+}
+.auth-forgot a {
+  font-size: 12.5px;
+  color: var(--accent);
+  text-decoration: none;
+}
+.auth-forgot a:hover { text-decoration: underline; }
+
+.auth-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: background 0.2s, transform 0.15s;
+  margin-top: 4px;
+}
+.auth-submit:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+.auth-divider {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  position: relative;
+}
+.auth-divider::before, .auth-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 38%;
+  height: 1px;
+  background: var(--border);
+}
+.auth-divider::before { left: 0; }
+.auth-divider::after  { right: 0; }
+
+.auth-security {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+.auth-security svg { color: var(--status-done); }
+
+/* OTP inputs */
+.otp-wrap { display: flex; gap: 10px; justify-content: center; }
+.otp-input {
+  width: 50px;
+  height: 56px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font);
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.otp-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
