@@ -1,16 +1,49 @@
-# React + Vite
+# INVENTRA - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern inventory management system frontend built with React, Vite, and Framer Motion.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Prerequisites
+- Node.js 16+ and npm
+- Backend server running on http://localhost:3000
 
-## React Compiler
+### Installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+The app will be available at http://localhost:5173
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Test Credentials
+
+Use these credentials to sign in (seeded in the backend):
+
+- **Inventory Manager**
+  - Email: `manager@ims.test`
+  - Password: `password123`
+
+- **Warehouse Staff**
+  - Email: `staff@ims.test`
+  - Password: `password123`
+
+## Features
+
+- Role-based authentication (JWT)
+- Real-time inventory tracking
+- Product catalog management
+- Purchase orders and GRN
+- Pick lists and stock movements
+- Dashboard with analytics
+- Responsive design with smooth animations
+
+## Tech Stack
+
+- React 18
+- Vite
+- React Router
+- Framer Motion
+- Axios
+- Lucide Icons

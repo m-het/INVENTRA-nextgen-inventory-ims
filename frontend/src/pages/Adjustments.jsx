@@ -68,7 +68,7 @@ export default function Adjustments() {
       })
       
       // Step 3: Submit the counted quantities (moves to IN_PROGRESS)
-      await api.post(`/stock-counts/${sc.id}/submit`, { lines: preparedLines })
+      await api.patch(`/stock-counts/${sc.id}/lines`, { lines: preparedLines })
       
       // Step 4: Complete the adjustment (moves to COMPLETED and generates StockMovements)
       await api.post(`/stock-counts/${sc.id}/complete`)

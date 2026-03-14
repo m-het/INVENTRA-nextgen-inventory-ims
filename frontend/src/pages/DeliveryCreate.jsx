@@ -57,7 +57,7 @@ export default function DeliveryCreate() {
       // Pick each line
       for (const line of lines) {
         if (Number(line.quantityPicked) > 0) {
-          await api.patch(`/pick-lists/${activePickList.id}/lines/${line.id}`, {
+          await api.patch(`/pick-lists/${activePickList.id}/lines/${line.id}/pick`, {
             quantityPicked: Number(line.quantityPicked)
           })
         }

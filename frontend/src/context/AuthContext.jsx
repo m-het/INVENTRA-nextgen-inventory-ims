@@ -12,25 +12,26 @@ export function AuthProvider({ children }) {
 
   const login = useCallback(async (email, password) => {
     const { data } = await api.post('/auth/login', { email, password })
-    const payload = data.data || data
-    const token = payload.accessToken || payload.token
+    // Backend returns { user, accessToken, refreshToken, expiresIn } directly
+    const token = data.accessToken
+    const refreshToken = data.refreshToken
+    const userObj = data.user
     localStorage.setItem('token', token)
-    if (payload.refreshToken) localStorage.setItem('refreshToken', payload.refreshToken)
-    const userObj = payload.user || { email }
+    localStorage.setItem('refreshToken', refreshToken)
     localStorage.setItem('user', JSON.stringify(userObj))
     setUser(userObj)
     return userObj
   }, [])
 
   const register = useCallback(async (name, email, password) => {
-    const { data } = await api.post('/auth/register', { name, email, password })
+    await api.post('/auth/register', { name, email, password })
     // register returns just the user object (no token) — do a login after
     const loginData = await api.post('/auth/login', { email, password })
-    const payload = loginData.data.data || loginData.data
-    const token = payload.accessToken || payload.token
+    const token = loginData.data.accessToken
+    const refreshToken = loginData.data.refreshToken
+    const userObj = loginData.data.user
     localStorage.setItem('token', token)
-    if (payload.refreshToken) localStorage.setItem('refreshToken', payload.refreshToken)
-    const userObj = payload.user || data.data || data
+    localStorage.setItem('refreshToken', refreshToken)
     localStorage.setItem('user', JSON.stringify(userObj))
     setUser(userObj)
     return userObj
